@@ -2,7 +2,7 @@
 import java.util.HashMap;
 
 public class Bag {
-    private static HashMap<Product,Integer> bag = new HashMap<>();
+    public static HashMap<Product,Integer> bag = new HashMap<>();
     
     public Bag() {
 
@@ -32,6 +32,8 @@ public class Bag {
     public HashMap<Product, Integer> getBag() {
         return bag;
     }
+
+    
 
     public boolean Product_Is_Not_In(Product p) {
         for (Integer i : bag.values()) {

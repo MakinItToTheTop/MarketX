@@ -3,5 +3,6 @@ public enum Category {
     ADVENTURE,
     SURVIVAL,
     FANTASY,
-    NONE
+    NONE,
+    WARFARE
 }

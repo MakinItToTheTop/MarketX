@@ -1,17 +1,22 @@
 
-public class Card {
+import java.io.Serializable;
+import java.util.Random;
+
+
+public class Card implements Serializable {
     private String card_numb;
     private String exp_date;
     private String code;
     private Integer balance;
+    private final Random r = new Random();
     
 
-    public Card(String card_numb, String exp_date,String code, Integer balance) {
+    public Card(String card_numb, String exp_date,String code) {
        
         this.card_numb = card_numb;
         this.exp_date = exp_date;
         this.code = code;
-        this.balance = balance;
+        this.balance = r.nextInt(1000);
     }
 
     public String getCardNumb() {
@@ -41,6 +46,12 @@ public class Card {
     public void setCode(String code) {
         this.code = code;
     }
+
+    public void decrementBalance(Integer price) {
+        balance = balance - price;
+    }
+
+    
     
 
 
