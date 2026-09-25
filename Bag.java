@@ -17,10 +17,9 @@ public class Bag {
     }
 
     public String showProduct() {
-        Integer i = 1;
+        
         for (Product a : bag.keySet()) {
-            System.out.println("*" +i+"*"+" "+ a.getName() +"--- $"+a.getPrice() + "\n");
-            i++;
+            System.out.println("*" +a.getId()+"*"+" "+ a.getName() +"--- $"+a.getPrice() + "\n");
         }
         return "";
     }

@@ -17,7 +17,7 @@ public class Product implements Serializable {
         this.category = category;
         this.description = description;
         this.price = price;
-        this.amount = r.nextInt(10);
+        this.amount = r.nextInt(1,10);
     }
 
     public int getId() {

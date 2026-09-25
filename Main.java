@@ -102,16 +102,19 @@ public class Main implements Serializable {
                             if (u.IsRegistered() == false) {
                                 saveUserId = u.getId();
                                 u.setRegistered();
+                                
                                 oou = new ObjectOutputStream(new FileOutputStream(u.getId()+".ser"));
                             } else {
                                 saveUserId = u.getId();
-                                try (ObjectInputStream ooui = new ObjectInputStream(new FileInputStream(u.getId()+".ser"))) {
-                                    bagg.bag = (HashMap<Product, Integer>) ooui.readObject();
-                                    oou = new ObjectOutputStream(new FileOutputStream(saveUserId +".ser")); 
+                                
+                                try (ObjectInputStream ooui = new ObjectInputStream(new FileInputStream(saveUserId+".ser"))) {
+                                    bagg.bag = (HashMap<Product, Integer>) ooui.readObject(); 
+                                    
                                 } catch (IOException | ClassNotFoundException e) {
                                     e.getStackTrace();
                                 }
-                                
+
+                                oou = new ObjectOutputStream(new FileOutputStream(u.getId()+".ser"));
                                 
                             }
 
@@ -123,6 +126,9 @@ public class Main implements Serializable {
 
                     } 
                 }
+
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("users.ser"));
+                oos.writeObject(registered_users);
                 
             }
 
@@ -778,6 +784,8 @@ public class Main implements Serializable {
         }
 
         else if (menuChoice == 3) {
+            oou = new ObjectOutputStream(new FileOutputStream(saveUserId+".ser"));
+            oou.writeObject(bagg.getBag());
             return;
         }
 
